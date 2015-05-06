@@ -3,15 +3,16 @@
 ## USAGE
 
 ### compile
-
-$project_root/mkdir bin
-$project_root/javac -d bin $(find ./src/* | grep .java)
-
+```
+$project_root> mkdir bin
+$project_root> javac -d bin $(find ./src/* | grep .java)
+```
 ### run
 
 The Scoreboard class is executable.  Simply run it by entering:
-
-$project_root> **java -cp bin/ ca.expedia.football.Scoreboard**
+```
+$project_root> java -cp bin/ ca.expedia.football.Scoreboard
+```
 CTRL+C to exit the program
 
 ——
@@ -19,18 +20,25 @@ CTRL+C to exit the program
 You should be presented a prompt, allowing commands to be entered.  Here are the 4 supported commands.
 
 To start a game:
-	Start: ‘home_team_name’ vs. ‘away_team_name’
-	*ex.* Start: ‘Club America’ vs. ‘Montreal Impact’ 
+
+**Start: ‘home_team_name’ vs. ‘away_team_name’**
+
+*ex.* 
+```Start: ‘Club America’ vs. ‘Montreal Impact’```
 
 To print the score of the game under way:
-	print
+	
+```print ```
 
 To enter a goal scored:
-	*Minute of the goal* ‘team_name’ ‘player_who_scored’
-	*ex.* 8 ‘Montreal Impact’ Romero
+** *Minute_of_the_goal* ‘team_name’ ‘player_who_scored’**
+	
+*ex.* 
+```8 ‘Montreal Impact’ Romero```
 
 To end a game, simply:
-	End
+	
+```End ```
 
 ### *NOTES*
 
@@ -59,6 +67,6 @@ I used a Chain of Responsibility pattern to organize the different commands impl
 
 * Included are JUnit4 unit tests.
 
-* Project is also available at Github: https://github.com/jsbournival/expedia-football/tree/master
+* Project is also available at Github: https://github.com/jsbournival/expedia-football
 
 
