@@ -64,9 +64,9 @@ I used a Chain of Responsibility pattern to organize the different commands impl
 
 * I added indicators upon successful start, end, and goal commands. I thought providing positive feedback added to the usability of the system.
 
-* When entering goals scored, team name and player name are case insensitive.
+* When the same player scores multiple goals, I took the liberty to arrange its scoresheet a bit like they do on matchday reports.  ex: West Germany 3 (Haller 2' 21', Muller 12')
 
-* Included are JUnit4 unit tests.
+* Included are some JUnit4 unit tests.
 
 * Project is also available at Github: https://github.com/jsbournival/expedia-football
 
