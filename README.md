@@ -19,24 +19,25 @@ CTRL+C to exit the program
 
 You should be presented a prompt, allowing commands to be entered.  Here are the 4 supported commands.
 
-To start a game:
+**To start a game:**
 
-**Start: ‘home_team_name’ vs. ‘away_team_name’**
+Start: ‘home_team_name’ vs. ‘away_team_name’
 
 *ex.* 
 ```Start: ‘Club America’ vs. ‘Montreal Impact’```
 
-To print the score of the game under way:
+**To print the score of the game under way:**
 	
 ```print ```
 
-To enter a goal scored:
-** *Minute_of_the_goal* ‘team_name’ ‘player_who_scored’**
+**To enter a goal scored:**
+
+*Minute_of_the_goal* ‘team_name’ ‘player_who_scored’
 	
 *ex.* 
 ```8 ‘Montreal Impact’ Romero```
 
-To end a game, simply:
+**To end a game, simply:**
 	
 ```End ```
 
