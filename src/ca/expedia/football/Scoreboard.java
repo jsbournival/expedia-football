@@ -41,6 +41,9 @@ public class Scoreboard {
 		Scoreboard scoreboard = new Scoreboard();
 		MatchCmdExecutor executor = new MatchCmdExecutor(scoreboard); 
 	
+		scoreboard.display("\nWELCOME TO EXPEDIA FOOTBALL SCOREBOARD (c) 2015");
+		scoreboard.display("-----------------------------------------------\n");
+		
 		while (true) {
 			try {
 				Console c = System.console();

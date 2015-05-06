@@ -11,6 +11,8 @@ import java.util.TreeMap;
 public class Team {
 	
 	private String teamName = null;
+	
+	// TODO: refactor the data structure of the goals to support multiple goals by the same player
 	private SortedMap<Integer, String> scoresheet = new TreeMap<Integer, String>();
 	
 	public Team(String teamName) {
