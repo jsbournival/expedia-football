@@ -23,9 +23,15 @@ public class Match {
 	 */
 	public void goooooooooooooooaaaal(int minute, String team, String player) {		
 		
-		if (team.equals(homeTeam.getName())) {
+		if (team == null || team.equalsIgnoreCase(""))
+			throw new IllegalArgumentException("team is null or blank");
+
+		if (player == null || player.equalsIgnoreCase(""))
+			throw new IllegalArgumentException("player is null or blank");
+		
+		if (team.equalsIgnoreCase(homeTeam.getName())) {
 			homeTeam.addGoal(minute, player);
-		} else if(team.equals(awayTeam.getName())) {
+		} else if(team.equalsIgnoreCase(awayTeam.getName())) {
 			awayTeam.addGoal(minute, player);
 		} else {
 			throw new IllegalArgumentException(team + " is not playing in this match");

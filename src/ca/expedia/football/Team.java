@@ -1,8 +1,9 @@
 package ca.expedia.football;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 /**
  * Implements a team, playing in a football match
@@ -12,8 +13,7 @@ public class Team {
 	
 	private String teamName = null;
 	
-	// TODO: refactor the data structure of the goals to support multiple goals by the same player
-	private SortedMap<Integer, String> scoresheet = new TreeMap<Integer, String>();
+	private Map<String, List<Integer>> scoresheet = new LinkedHashMap<String, List<Integer>>();
 	
 	public Team(String teamName) {
 		if (teamName == null || teamName.equalsIgnoreCase(""))
@@ -39,25 +39,40 @@ public class Team {
 		if (minute > 90 || minute <= 0)
 			throw new IllegalArgumentException("goals have to be scored in regulation time. sorry.");
 		
-		scoresheet.put(minute, player);
+		if (player == null || player.equalsIgnoreCase(""))
+			throw new IllegalArgumentException("player is null or blank.");
+		
+		if (!scoresheet.containsKey(player)) {
+			List<Integer> l = new ArrayList<Integer>();
+			l.add(minute);
+			scoresheet.put(player, l);
+		} else {
+			scoresheet.get(player).add(minute);
+		}		
 	}
 	
 	/**
 	 * @return this team's scoresheet
 	 */
 	public String getScoresheet() {
-		StringBuilder score = new StringBuilder(getName());
-		score.append(" " + scoresheet.size());
 		
+		int numberOfGoals = 0;
+				
+		StringBuilder score = new StringBuilder();
 		if (scoresheet.size() > 0) {
 			score.append(" (");
-			for(Map.Entry<Integer,String> goal : scoresheet.entrySet()) {
-				score.append(goal.getValue() + " " + goal.getKey() + "', ");
+			for(Map.Entry<String,List<Integer>> goal : scoresheet.entrySet()) {
+				score.append(goal.getKey());
+				numberOfGoals += goal.getValue().size();
+				for (Integer i : goal.getValue()) {
+					score.append(" " + i + "'");
+				}
+				score.append(", ");
 			}
 			score.delete(score.length()-2,score.length());
 			score.append(")");
 		}
 		
-		return score.toString();
+		return getName() + " " + numberOfGoals + score.toString();
 	}
 }
