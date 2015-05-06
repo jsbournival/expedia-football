@@ -1,6 +1,7 @@
 package ca.expedia.football;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,6 +65,8 @@ public class Team {
 			for(Map.Entry<String,List<Integer>> goal : scoresheet.entrySet()) {
 				score.append(goal.getKey());
 				numberOfGoals += goal.getValue().size();
+				
+				Collections.sort(goal.getValue());
 				for (Integer i : goal.getValue()) {
 					score.append(" " + i + "'");
 				}

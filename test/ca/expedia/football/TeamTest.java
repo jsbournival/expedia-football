@@ -43,11 +43,21 @@ public class TeamTest {
 	}
 
 	@Test
-	public void testAddGoalWithMultiplePlayer() {
+	public void testAddGoalWithSamePlayer() {
 		
 		Team t = new Team("Montreal Impact");
 		t.addGoal(1, "Romero");
 		t.addGoal(2, "Romero");
+		
+		assertEquals("Montreal Impact 2 (Romero 1' 2')", t.getScoresheet());		
+	}
+
+	@Test
+	public void testAddGoalWithSamePlayerUnsortedMinutes() {
+		
+		Team t = new Team("Montreal Impact");
+		t.addGoal(2, "Romero");
+		t.addGoal(1, "Romero");
 		
 		assertEquals("Montreal Impact 2 (Romero 1' 2')", t.getScoresheet());		
 	}
